@@ -1,15 +1,17 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 
 const UserOrder = (props) => {
   console.log(props);
     const {_id} = props.orders;
     const {imageURL,name,quantity,price} = props.orders.orders;
+    const history = useHistory();
     const handleDeleteOrder =(id) => {
       fetch(`https://desolate-cliffs-73684.herokuapp.com/deleteOrder/${id}`,{
         method:'DELETE'
       })
       .then(res => res.json())
-      .then(data => alert('delete order'))
+      .then(data => history.push('/home'))
     }
     return (
         <div className="col-md-12">

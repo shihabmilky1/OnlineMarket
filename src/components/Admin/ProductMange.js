@@ -11,18 +11,21 @@ const ProductMange = (props) => {
         })
         .then(res => res.json())
         .then(data => {
-                alert('delete')
                 history.push('/admin/addProduct')
+
     })
     }
     return (   
+                     <>
                      <tr>
                          <td scope="row">{name}</td>
                          <td>{weight}</td>
                          <td>{price}</td>
                          <td><button onClick={() => handleDelete(_id)} className="btn btn-danger btn-sm"><FontAwesomeIcon icon={faTrashAlt} /> </button></td>
                      </tr>
-                
+                     </>
+                     
+                    
      
     );
 };

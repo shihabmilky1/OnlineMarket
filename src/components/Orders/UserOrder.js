@@ -1,8 +1,16 @@
 import React from 'react';
 
 const UserOrder = (props) => {
-    console.log(props);
-    const {imageURL,name,quantity,price} = props.orders.orders
+  console.log(props);
+    const {_id} = props.orders;
+    const {imageURL,name,quantity,price} = props.orders.orders;
+    const handleDeleteOrder =(id) => {
+      fetch(`https://desolate-cliffs-73684.herokuapp.com/deleteOrder/${id}`,{
+        method:'DELETE'
+      })
+      .then(res => res.json())
+      .then(data => alert('delete order'))
+    }
     return (
         <div className="col-md-12">
            <div className="card mb-3 shadow" style={{border:'0'}}>
@@ -16,6 +24,7 @@ const UserOrder = (props) => {
         <p className="card-text">Quantity : {quantity}</p>
         <p className="card-text">Price : ${price}</p>
         <p className="card-text"><small className="text-muted">Ordered in <b>{new Date(props.orders.date).toDateString('dd/MM/yyyy')}</b></small></p>
+        <button onClick={()=>handleDeleteOrder(_id)} className="btn btn-outline-danger" style={{borderRadius:'0px'}}>Cancel Order</button>
       </div>
     </div>
   </div>

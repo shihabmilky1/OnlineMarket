@@ -3,13 +3,25 @@ import ProductMange from './ProductMange';
 
 const ManageProduct = () => {
     const [manageProduct,setManageProduct] = useState([]);
+    const [spinner,setSpinner] = useState(true);
+
     useEffect(()=>{
         fetch('https://desolate-cliffs-73684.herokuapp.com/products')
         .then(res => res.json())
-        .then(data => setManageProduct(data))
+        .then(data => {
+            setManageProduct(data); 
+            setSpinner(false)
+        })
     },[])
+    const loader = 
+    <div className="text-center" style={{marginTop:'25%'}}>
+        <div class="spinner-grow" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+    </div>;
     return (
         <>
+        {spinner ? loader :
          <div className="container-fluid p-0">
                 <div className="row h-100 g-0">
                     <div className="col-md-12">
@@ -32,6 +44,7 @@ const ManageProduct = () => {
             </div>
             </div>
             </div>
+}
         </>
     );
 };

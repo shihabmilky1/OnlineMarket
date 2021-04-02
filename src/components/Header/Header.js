@@ -9,7 +9,7 @@ const Header = () => {
         <>
             <nav className="navbar navbar-expand-lg " style={{background:'#293845',color:'#fff'}}>
   <div className="container">
-    <Link className="navbar-brand" to="/">Fresh Vally</Link>
+    <Link className="navbar-brand" to="/">Online Market</Link>
     <button className="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>

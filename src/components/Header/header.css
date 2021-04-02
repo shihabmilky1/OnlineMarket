@@ -14,6 +14,9 @@
 #navbarDropdown:after{
     display: none;
 }
+.dropdown-item.active, .dropdown-item:active {
+    background-color: transparent;
+}
 
 @media (min-width:992px){
     #responsiveDropdown {

@@ -2,7 +2,6 @@ import React from 'react';
 import { useHistory } from 'react-router';
 
 const UserOrder = (props) => {
-  console.log(props);
     const {_id} = props.orders;
     const {imageURL,name,quantity,price} = props.orders.orders;
     const history = useHistory();

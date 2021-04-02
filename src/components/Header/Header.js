@@ -32,7 +32,7 @@ const Header = () => {
           <Link className="nav-link dropdown-toggle" to="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            {logInUser.image ? <img style={{width:'40px',height:'40px',borderRadius:'50%'}} src={logInUser.image} alt=""/> : <img style={{width:'30px',height:'30px',borderRadius:'50%'}} src="https://i.ibb.co/4spK4g2/man-303792-960-720.png" alt=""/>}
           </Link>
-          <ul className="dropdown-menu shadow me-lg-5 text-center" aria-labelledby="navbarDropdown">
+          <ul className="dropdown-menu shadow text-center" id="responsiveDropdown" aria-labelledby="navbarDropdown">
             <li><Link className="dropdown-item" to="/">{logInUser.name}</Link></li>
             <li>   <button onClick={()=>setLogInUser({})} className="nav-link m-auto mt-3" style={{background:'#1765CC',padding:"7px 25px",color:'#fff',border:'none'}} ><b>Logout</b></button></li>
           </ul>

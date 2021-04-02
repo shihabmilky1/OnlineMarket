@@ -12,10 +12,17 @@
 }
 .SideNav li {
     list-style: none;
-    padding:10px 90px;
-    margin: 10 0px;
+    /* padding:10px 90px;
+    margin: 10 0px; */
     display: flex;
 }
+ .SideNav li a {
+    padding:10px 0px;
+    margin: 10 0px;
+    padding-left: 30px;
+    display: block;
+ }
+
 .SideNav li:hover{
     background: #293846;
 }

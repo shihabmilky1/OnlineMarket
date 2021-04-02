@@ -14,3 +14,15 @@
 #navbarDropdown:after{
     display: none;
 }
+
+@media (min-width:992px){
+    #responsiveDropdown {
+            margin-left: -130px;
+        }   
+    }
+
+@media (min-width:1200px){
+    #responsiveDropdown {
+            margin-left: -130px;
+        }   
+    }

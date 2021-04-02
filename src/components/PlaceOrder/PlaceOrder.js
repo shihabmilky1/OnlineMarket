@@ -24,7 +24,7 @@ const PlaceOrder = () => {
             orders: order,
             date: new Date()
         }
-       fetch('http://localhost:5000/placeOrder',{
+       fetch('https://desolate-cliffs-73684.herokuapp.com/placeOrder',{
            method:'POST',
            headers: {'Content-Type' : 'application/json'},
            body: JSON.stringify(orders)

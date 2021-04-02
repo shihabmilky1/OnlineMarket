@@ -32,7 +32,7 @@ const AddProduct = () => {
                 quantity:1
             }
            if(imageURL){
-            fetch('http://localhost:5000/admin/addProduct',{
+            fetch('https://desolate-cliffs-73684.herokuapp.com/admin/addProduct',{
                 method:'POST',
                 headers:{"Content-Type": "application/json"},
                 body: JSON.stringify(products)

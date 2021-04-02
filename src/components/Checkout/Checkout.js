@@ -10,7 +10,7 @@ const Checkout = () => {
     const [product, setProduct] = useState({});
     const { name, price, weight, quantity } = product;
     useEffect(() => {
-        fetch('http://localhost:5000/product/' + id)
+        fetch('https://desolate-cliffs-73684.herokuapp.com/product/' + id)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [id])

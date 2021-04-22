@@ -10,14 +10,37 @@ import Header from './components/Header/Header';
 import AddProduct from './components/Admin/AddProduct';
 import Checkout from './components/Checkout/Checkout';
 import Login from './components/Login/Login';
-import { createContext } from 'react';
+import { createContext, useEffect } from 'react';
 import { useState } from 'react';
 import PrivateRoute from './components/Privetroute/PrivetRoute';
 import Orders from './components/Orders/Orders';
 import PlaceOrder from './components/PlaceOrder/PlaceOrder';
+import firebase from "firebase/app";
+import "firebase/auth";
 export const UserContext = createContext()
+
 function App() {
  const [logInUser,setLogInUser] = useState({}) 
+ const [user,setUser] = useState({
+  name:'',
+  image:'',
+  email:'',
+}) ;
+ useEffect(() =>{
+  firebase.auth().onAuthStateChanged(myUser=>{
+      if(myUser){
+        const users = myUser;
+        const newUser = {...user};
+        newUser.name = users.displayName;
+        newUser.email = users.email;
+        newUser.image = users.photoURL;
+        setLogInUser(newUser);
+      }
+      else{
+        console.log('nai');
+      }
+    })
+ },[user])
   return (
     <UserContext.Provider value={[logInUser,setLogInUser]}>
     <Router>

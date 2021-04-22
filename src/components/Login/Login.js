@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
 import firebase from "firebase/app";
@@ -39,7 +39,24 @@ const Login = () => {
     var errorMessage = error.message;
 
   });
+
     }
+  useEffect(()=>{
+    firebase.auth().onAuthStateChanged(myUser=>{
+        if(myUser){
+          var users = myUser;
+          const newUser = {...user};
+          newUser.name = users.displayName;
+          newUser.email = users.email;
+          newUser.image = users.photoURL;
+          setLogInUser(newUser);
+          history.replace(from);     
+        }
+        else{
+          console.log('nai');
+        }
+      })
+  },[user])
     return (
         <>
         <div className="text-center mt-5 pt-5">
